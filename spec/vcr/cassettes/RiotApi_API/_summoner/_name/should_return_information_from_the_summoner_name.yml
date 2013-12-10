@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/by-name/BestLuxEUW/?api_key=api_key_YYYYYYYYYYYYYYYYYYYYY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - riot_api rubygem 0.0.1
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      access-control-allow-headers:
+      - Content-Type
+      access-control-allow-methods:
+      - GET, POST, DELETE, PUT
+      access-control-allow-origin:
+      - '*'
+      content-type:
+      - application/json;charset=UTF-8
+      date:
+      - Tue, 10 Dec 2013 23:03:59 GMT
+      server:
+      - Jetty(9.1.0.v20131115)
+      x-newrelic-app-data:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      content-length:
+      - '146'
+      x-cache:
+      - MISS from localhost
+      x-cache-lookup:
+      - MISS from localhost:3128
+      via:
+      - 1.1 localhost:3128 (squid/2.7.STABLE9)
+      connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"id":44600324,"name":"Best Lux EUW","profileIconId":7,"summonerLevel":6,"revisionDate":1375116256000,"revisionDateStr":"07/29/2013
+        04:44 PM UTC"}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 23:04:00 GMT
+recorded_with: VCR 2.6.0
