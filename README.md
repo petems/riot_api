@@ -26,8 +26,8 @@ $ gem install riot_api
 
 ## Usage:
 
-Example
-``
+
+```ruby
 require 'riot_api'
 
 # Create Instace of the API
@@ -61,4 +61,8 @@ For more information and a complete list see [the contributor page on GitHub](ht
 ## License
 
 [MIT](./LICENSE)
+
+## Thanks
+
+* @rmoriz - For the excellent [digital_ocean](https://github.com/rmoriz/digital_ocean) gem, which I used as a framework to setup this gem! :+1:
 
