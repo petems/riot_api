@@ -60,5 +60,5 @@ For more information and a complete list see [the contributor page on GitHub](ht
 
 ## License
 
-MIT
+[MIT](./LICENSE)
 
