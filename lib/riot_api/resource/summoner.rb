@@ -3,11 +3,17 @@ module RiotApi
     class Summoner < Base
 
       def name(name, opts = {})
-        @connection.get("summoner/by-name/#{name}/").body
+        @connection.get("#{base_path}/by-name/#{name}/").body
       end
 
       def id(id, opts = {})
-        @connection.get("summoner/#{id}/").body
+        @connection.get("#{base_path}/#{id}/").body
+      end
+
+      private
+
+      def base_path
+        "#{endpoint_version}/summoner/"
       end
 
     end

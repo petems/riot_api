@@ -5,7 +5,7 @@ module RiotApi
       @region              = params[:region]
       @debug               = params[:debug]
       @ssl                 = params[:ssl] || { :verify => true }
-      @base_url            = params[:base_url]            || "http://prod.api.pvp.net/api/lol/#{@region}/v1.1/"
+      @base_url            = params[:base_url]            || "http://prod.api.pvp.net/api/lol/#{@region}/"
       @faraday_adapter     = params[:faraday_adapter]     || Faraday.default_adapter
       @raise_status_errors = params[:raise_status_errors] || false
       @faraday             = params[:faraday]             || default_faraday
