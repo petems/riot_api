@@ -11,6 +11,7 @@ module RiotApi
       @faraday             = params[:faraday]             || default_faraday
       raise ArgumentError, ':api_key missing' unless @api_key
       raise ArgumentError, ':region missing' unless @region
+      raise ArgumentError, "Invalid Region (Valid regions: 'eune','br','tr','na','euw')" unless ['eune','br','tr','na','euw'].include?(@region)
     end
 
     def summoner

@@ -6,6 +6,10 @@ module RiotApi
         @connection.get("summoner/by-name/#{name}/").body
       end
 
+      def id(id, opts = {})
+        @connection.get("summoner/#{id}/").body
+      end
+
     end
   end
 end
