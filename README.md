@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/riot_api.png)](http://badge.fury.io/rb/riot_api)
 
-A Ruby wrapper around connecting to the Riot API
+A Ruby wrapper around connecting to the [Riot API](https://developer.riotgames.com)
 
 Early days yet, but trying to make it as modular as possible :cat:
 
