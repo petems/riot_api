@@ -28,6 +28,7 @@ $ gem install riot_api
 
 ## Usage:
 
+First, you'll need to go to [http://developer.riotgames.com/](http://developer.riotgames.com/) and get an API key.
 
 ```ruby
 require 'riot_api'
