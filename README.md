@@ -1,6 +1,7 @@
 # Riot API
 
 [![Gem Version](https://badge.fury.io/rb/riot_api.png)](http://badge.fury.io/rb/riot_api)
+[![Coverage Status](https://coveralls.io/repos/petems/riot_api/badge.png)](https://coveralls.io/r/petems/riot_api)
 
 A Ruby wrapper around connecting to the [Riot API](https://developer.riotgames.com)
 
