@@ -36,4 +36,32 @@ describe RiotApi::API, :vcr do
     end
 
   end
+
+  describe '#stats' do
+    let(:summoner_id) { '19531813' }
+
+    # Ranked command requires user has played ranked
+    describe '#ranked' do
+      let(:response) {
+        subject.stats.ranked summoner_id
+      }
+
+      it 'should return ranked information from the summoner name' do
+        response.summonerId.should eql(19531813)
+        response.champions.first.first.should eql ["id", 111]
+      end
+    end
+
+    describe '#summary' do
+      let(:response) {
+        subject.stats.summary summoner_id
+      }
+
+      it 'should return summary information from the summoner id' do
+        response.summonerId.should eql(19531813)
+        response.playerStatSummaries.first.should include 'aggregated_stats'
+      end
+    end
+
+  end
 end
