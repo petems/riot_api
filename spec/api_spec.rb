@@ -88,4 +88,21 @@ describe RiotApi::API, :vcr do
     end
 
   end
+
+  describe '#game' do
+    let(:summoner_id) { '19531813' }
+
+    # Ranked command requires user has played ranked
+    describe '#recent' do
+      let(:response) {
+        subject.game.recent summoner_id
+      }
+
+      it 'should return a list of recent games played' do
+        response.count.should > 0
+        response.first.respond_to?(:champion_id).should be_true
+      end
+    end
+  end
+
 end
