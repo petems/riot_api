@@ -57,6 +57,24 @@ see the [CHANGELOG.md](./CHANGELOG.md) file.
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+## Testing
+
+```shell
+bundle install
+```
+
+If adding new test:
+
+```shell
+RECORDING=1 RIOT_API_KEY=your-api-key rspec
+```
+
+If running existing tests:
+
+```shell
+rspec
+```
+
 ### Contributors
 
 * None Yet :)
