@@ -22,6 +22,10 @@ module RiotApi
       RiotApi::Resource::Stats.new(@faraday)
     end
 
+    def champions
+      RiotApi::Resource::Champions.new(@faraday)
+    end
+
     def default_faraday
       Faraday.new(:url => @base_url, :ssl => @ssl) do |faraday|
         faraday.use Faraday::Response::RaiseError if @raise_status_errors
