@@ -37,6 +37,10 @@ module RiotApi
       RiotApi::Resource::Game.new(@faraday, @region)
     end
 
+    def league
+      RiotApi::Resource::League.new(@faraday, @region)
+    end
+
     def stats
       RiotApi::Resource::Stats.new(@faraday, @region)
     end
