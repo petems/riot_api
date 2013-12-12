@@ -3,7 +3,7 @@ module RiotApi
     class Champions < Base
 
       def list(free=false)
-        @connection.get(path, { :freeToPlay => free }).body.champions
+        @connection.get(base_path, { :freeToPlay => free }).body.champions
       end
 
       def free
@@ -12,8 +12,8 @@ module RiotApi
 
       private
 
-      def path
-        "champion"
+      def base_path
+        "#{endpoint_version}/champion"
       end
     end
   end
