@@ -13,7 +13,7 @@ module RiotApi
       end
 
       def base_path(summoner_id)
-        "#{endpoint_version}/game/by-summoner/#{summoner_id}"
+        "#{endpoint_precursor}/game/by-summoner/#{summoner_id}"
       end
 
     end

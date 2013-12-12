@@ -20,7 +20,7 @@ module RiotApi
       @region              = params[:region]
       @debug               = params[:debug]
       @ssl                 = params[:ssl] || { :verify => true }
-      @base_url            = params[:base_url]            || "http://prod.api.pvp.net/api/lol/#{@region}/"
+      @base_url            = params[:base_url]            || "http://prod.api.pvp.net/api/"
       @faraday_adapter     = params[:faraday_adapter]     || Faraday.default_adapter
       @raise_status_errors = params[:raise_status_errors] || false
       @faraday             = params[:faraday]             || default_faraday
@@ -30,19 +30,19 @@ module RiotApi
     end
 
     def champions
-      RiotApi::Resource::Champions.new(@faraday)
+      RiotApi::Resource::Champions.new(@faraday, @region)
     end
 
     def game
-      RiotApi::Resource::Game.new(@faraday)
+      RiotApi::Resource::Game.new(@faraday, @region)
     end
 
     def stats
-      RiotApi::Resource::Stats.new(@faraday)
+      RiotApi::Resource::Stats.new(@faraday, @region)
     end
 
     def summoner
-      RiotApi::Resource::Summoner.new(@faraday)
+      RiotApi::Resource::Summoner.new(@faraday, @region)
     end
 
     def default_faraday
@@ -57,6 +57,6 @@ module RiotApi
         faraday.headers['User-Agent'] = "riot_api rubygem v#{RiotApi::VERSION}"
       end
     end
-    
+
   end
 end
