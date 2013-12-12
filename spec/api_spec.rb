@@ -133,4 +133,19 @@ describe RiotApi::API, :vcr do
     end
   end
 
+  describe '#league', :vcr do
+    let(:summoner_id) { '19531813' }
+
+    describe '#by_summoner' do
+      let(:response) {
+        subject.league.by_summoner summoner_id
+      }
+
+      it 'should return leagues data for summoner' do
+        response["entries"].count.should > 0
+        response.tier.should == 'CHALLENGER'
+      end
+    end
+  end
+
 end
