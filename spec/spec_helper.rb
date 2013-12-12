@@ -1,5 +1,11 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'simplecov'
 require 'coveralls'
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start do
+  add_filter 'support/vcr'
+end
+
 Coveralls.wear!
 
 require 'rspec/autorun'
