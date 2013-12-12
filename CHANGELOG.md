@@ -3,3 +3,4 @@
 * First Release!
 * Initial Setup
 * Summoner Name method added
+* Improved URL building
