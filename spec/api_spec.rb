@@ -86,6 +86,34 @@ describe RiotApi::API, :vcr do
         response.playerStatSummaries.first.should include 'aggregated_stats'
       end
     end
+  end
+
+  describe '#champions' do
+    let(:current_champion_count) { 116 }
+
+    describe '#list' do
+      let(:response) {
+        subject.champions.list
+      }
+
+      it 'should return a list of all champions' do
+        response.count.should be >= current_champion_count
+        response.first.respond_to?(:name).should be_true
+      end
+    end
+
+    describe '#free' do
+      let(:response) {
+        subject.champions.free
+      }
+
+      it 'should return a list of all free champions' do
+        response.count.should be < current_champion_count
+        response.count.should be > 0
+        response.first.respond_to?(:name).should be_true
+        response.first.free_to_play.should be_true
+      end
+    end
 
   end
 

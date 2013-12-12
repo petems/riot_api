@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://prod.api.pvp.net/api/lol/euw/v1.1/champion?api_key=api_key_YYYYYYYYYYYYYYYYYYYYY&freeToPlay=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - riot_api rubygem v0.0.1
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      access-control-allow-headers:
+      - Content-Type
+      access-control-allow-methods:
+      - GET, POST, DELETE, PUT
+      access-control-allow-origin:
+      - ! '*'
+      content-type:
+      - application/json;charset=UTF-8
+      date:
+      - Wed, 11 Dec 2013 15:44:19 GMT
+      server:
+      - Jetty(9.1.0.v20131115)
+      x-newrelic-app-data:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      content-length:
+      - '1890'
+      connection:
+      - Close
+    body:
+      encoding: US-ASCII
+      string: ! '{"champions":[{"id":31,"name":"Chogath","active":true,"attackRank":3,"defenseRank":7,"magicRank":7,"difficultyRank":7,"botEnabled":true,"freeToPlay":true,"botMmEnabled":true,"rankedPlayEnabled":true},{"id":104,"name":"Graves","active":true,"attackRank":8,"defenseRank":5,"magicRank":3,"difficultyRank":4,"botEnabled":true,"freeToPlay":true,"botMmEnabled":true,"rankedPlayEnabled":true},{"id":74,"name":"Heimerdinger","active":true,"attackRank":2,"defenseRank":6,"magicRank":8,"difficultyRank":4,"botEnabled":false,"freeToPlay":true,"botMmEnabled":false,"rankedPlayEnabled":true},{"id":39,"name":"Irelia","active":true,"attackRank":7,"defenseRank":4,"magicRank":5,"difficultyRank":5,"botEnabled":false,"freeToPlay":true,"botMmEnabled":true,"rankedPlayEnabled":true},{"id":43,"name":"Karma","active":true,"attackRank":1,"defenseRank":7,"magicRank":8,"difficultyRank":8,"botEnabled":false,"freeToPlay":true,"botMmEnabled":false,"rankedPlayEnabled":true},{"id":117,"name":"Lulu","active":true,"attackRank":4,"defenseRank":5,"magicRank":7,"difficultyRank":7,"botEnabled":false,"freeToPlay":true,"botMmEnabled":false,"rankedPlayEnabled":true},{"id":11,"name":"MasterYi","active":true,"attackRank":10,"defenseRank":4,"magicRank":2,"difficultyRank":2,"botEnabled":true,"freeToPlay":true,"botMmEnabled":true,"rankedPlayEnabled":true},{"id":133,"name":"Quinn","active":true,"attackRank":9,"defenseRank":4,"magicRank":2,"difficultyRank":7,"botEnabled":false,"freeToPlay":true,"botMmEnabled":false,"rankedPlayEnabled":true},{"id":35,"name":"Shaco","active":true,"attackRank":8,"defenseRank":4,"magicRank":6,"difficultyRank":9,"botEnabled":false,"freeToPlay":true,"botMmEnabled":false,"rankedPlayEnabled":true},{"id":4,"name":"TwistedFate","active":true,"attackRank":6,"defenseRank":2,"magicRank":6,"difficultyRank":9,"botEnabled":false,"freeToPlay":true,"botMmEnabled":false,"rankedPlayEnabled":true}]}'
+    http_version: 
+  recorded_at: Wed, 11 Dec 2013 15:44:19 GMT
+recorded_with: VCR 2.8.0

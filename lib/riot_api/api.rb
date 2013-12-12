@@ -14,16 +14,20 @@ module RiotApi
       raise ArgumentError, "Invalid Region (Valid regions: 'eune','br','tr','na','euw')" unless ['eune','br','tr','na','euw'].include?(@region)
     end
 
-    def summoner
-      RiotApi::Resource::Summoner.new(@faraday)
+    def champions
+      RiotApi::Resource::Champions.new(@faraday)
+    end
+
+    def game
+      RiotApi::Resource::Game.new(@faraday)
     end
 
     def stats
       RiotApi::Resource::Stats.new(@faraday)
     end
 
-    def game
-      RiotApi::Resource::Game.new(@faraday)
+    def summoner
+      RiotApi::Resource::Summoner.new(@faraday)
     end
 
     def default_faraday
@@ -38,5 +42,6 @@ module RiotApi
         faraday.headers['User-Agent'] = "riot_api rubygem v#{RiotApi::VERSION}"
       end
     end
+    
   end
 end
