@@ -1,5 +1,20 @@
 module RiotApi
   class API
+
+    # Creates a new Riot API client instance.
+    #
+    # @param [Hash] params
+    # @option params [String] :api_key The api_key (required)
+    # @option params [String] :api_key The region ('eune','br','tr','na','euw') (required)
+    # @option params [String] :base_url ("http://prod.api.pvp.net/api/lol/#{@region}/") API base url with region
+    # @option params [Symbol] :faraday_adapter ('Faraday.default_adapter')  Faraday adapter/http client library to use.
+    # @raise [ArgumentError] when no api_key is provided
+    # @raise [ArgumentError] when no region is provided
+    # @raise [ArgumentError] when region is not one of 'eune','br','tr','na', or 'euw'
+    # @example
+    #   ra = RiotApi::API.new :api_key => '######', :region => 'euw'
+    #
+    # @see [Faraday]
     def initialize(params)
       @api_key             = params[:api_key]
       @region              = params[:region]
