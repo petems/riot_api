@@ -77,7 +77,7 @@ rspec
 
 ### Contributors
 
-* None Yet :)
+* [pcg79](https://github.com/pcg79)
 
 For more information and a complete list see [the contributor page on GitHub](https://github.com/petems/riot_api/contributors).
 
