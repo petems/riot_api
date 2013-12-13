@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/44600324,19531813/name?api_key=api_key_YYYYYYYYYYYYYYYYYYYYY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - riot_api rubygem v0.0.2
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      access-control-allow-headers:
+      - Content-Type
+      access-control-allow-methods:
+      - GET, POST, DELETE, PUT
+      access-control-allow-origin:
+      - ! '*'
+      content-type:
+      - application/json;charset=UTF-8
+      date:
+      - Fri, 13 Dec 2013 14:51:17 GMT
+      server:
+      - Jetty(9.1.0.v20131115)
+      x-newrelic-app-data:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      content-length:
+      - '86'
+      connection:
+      - Close
+    body:
+      encoding: US-ASCII
+      string: ! '{"summoners":[{"id":44600324,"name":"Best Lux EUW"},{"id":19531813,"name":"Froggen"}]}'
+    http_version: 
+  recorded_at: Fri, 13 Dec 2013 14:51:17 GMT
+recorded_with: VCR 2.8.0
