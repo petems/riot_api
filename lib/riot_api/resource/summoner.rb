@@ -3,11 +3,11 @@ module RiotApi
     class Summoner < Base
 
       def name(name, opts = {})
-        @connection.get("#{base_path}/by-name/#{name}/").body
+        RiotApi::Model::Summoner.new @connection.get("#{base_path}/by-name/#{name}/").body
       end
 
       def id(id, opts = {})
-        @connection.get("#{base_path}/#{id}/").body
+        RiotApi::Model::Summoner.new @connection.get("#{base_path}/#{id}/").body
       end
 
       private

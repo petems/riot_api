@@ -26,6 +26,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'faraday_middleware', '~> 0.9.0'
   gem.add_dependency 'json', '~> 1.8.1'
   gem.add_dependency 'rash', '~> 0.4.0'
+  gem.add_dependency 'virtus', '~> 1.0.1'
 
   gem.add_development_dependency 'rspec', '~> 2.0'
   gem.add_development_dependency 'guard', '~> 2.1.0'
