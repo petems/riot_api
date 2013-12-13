@@ -59,6 +59,19 @@ describe RiotApi::API, :vcr do
       end
     end
 
+    describe '#runes' do
+      let(:summoner_id) { '19531813' }
+
+      let(:response) {
+        subject.summoner.runes summoner_id
+      }
+
+      it 'should return a list of rune pages containing lists of talents' do
+        response.pages.count.should be > 0
+        response.pages.first.slots.count.should be > 0
+      end
+    end
+
   end
 
   describe '#stats' do
