@@ -10,6 +10,10 @@ module RiotApi
         RiotApi::Model::Summoner.new @connection.get("#{base_path}/#{id}/").body
       end
 
+      def masteries(id)
+        @connection.get("#{base_path}/#{id}/masteries").body
+      end
+
       private
 
       def base_path
