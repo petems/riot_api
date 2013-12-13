@@ -12,7 +12,7 @@ VCR.configure do |c|
 
   c.filter_sensitive_data('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX') do |http_interaction|
     #Not sure if this needs removing, but better safe than sorry...
-    if http_interaction.response.headers['x-newrelic-app-data'].first != nil
+    if http_interaction.response.headers['x-newrelic-app-data'] != nil
       http_interaction.response.headers['x-newrelic-app-data'].first
     end
   end
