@@ -66,26 +66,55 @@ describe RiotApi::API, :vcr do
 
     # Ranked command requires user has played ranked
     describe '#ranked' do
-      let(:response) {
-        subject.stats.ranked summoner_id
-      }
 
-      it 'should return ranked information from the summoner name' do
-        response.summonerId.should eql(19531813)
-        response.champions.first.first.should eql ["id", 111]
+      describe 'omitting season' do
+        let(:response) {
+          subject.stats.ranked summoner_id
+        }
+
+        it 'should return ranked information from the summoner id' do
+          response.summonerId.should eql(19531813)
+          response.champions.first.first.should eql ["id", 111]
+        end
+      end
+
+      describe 'specifying season' do
+        let(:response) {
+          subject.stats.ranked summoner_id, :season => "SEASON3"
+        }
+
+        it 'should return ranked information from the summoner id for the specified season' do
+          response.summonerId.should eql(19531813)
+          response.champions.first.first.should eql ["id", 111]
+        end
       end
     end
 
     describe '#summary' do
-      let(:response) {
-        subject.stats.summary summoner_id
-      }
 
-      it 'should return summary information from the summoner id' do
-        response.summonerId.should eql(19531813)
-        response.playerStatSummaries.first.should include 'aggregated_stats'
+      describe 'omitting season' do
+        let(:response) {
+          subject.stats.summary summoner_id
+        }
+
+        it 'should return summary information from the summoner id' do
+          response.summonerId.should eql(19531813)
+          response.playerStatSummaries.first.should include 'aggregated_stats'
+        end
+      end
+
+      describe 'specifying season' do
+        let(:response) {
+          subject.stats.summary summoner_id, :season => "SEASON3"
+        }
+
+        it 'should return summary information from the summoner id for the specified season' do
+          response.summonerId.should eql(19531813)
+          response.playerStatSummaries.first.should include 'aggregated_stats'
+        end
       end
     end
+
   end
 
   describe '#champions' do
