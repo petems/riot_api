@@ -3,11 +3,11 @@ module RiotApi
     class Stats < Base
 
       def ranked(id, opts = {})
-        @connection.get("#{base_path(id)}/ranked").body
+        @connection.get("#{base_path(id)}/ranked", opts).body
       end
 
       def summary(id, opts = {})
-        @connection.get("#{base_path(id)}/summary").body
+        @connection.get("#{base_path(id)}/summary", opts).body
       end
 
       private
