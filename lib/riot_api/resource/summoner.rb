@@ -10,6 +10,17 @@ module RiotApi
         RiotApi::Model::Summoner.new @connection.get("#{base_path}/#{id}/").body
       end
 
+      def masteries(id)
+        @connection.get("#{base_path}/#{id}/masteries").body
+      end
+
+      def names(*ids)
+        ids = ids.compact.join(',')
+        @connection.get("#{base_path}/#{ids}/name").body.summoners.map do |summoner|
+          RiotApi::Model::Summoner.new summoner
+        end
+      end
+
       def runes(id)
         @connection.get("#{base_path}/#{id}/runes").body
       end

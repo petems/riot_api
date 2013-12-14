@@ -59,6 +59,33 @@ describe RiotApi::API, :vcr do
       end
     end
 
+    describe '#masteries' do
+      let(:summoner_id) { '19531813' }
+
+      let(:response) {
+        subject.summoner.masteries summoner_id
+      }
+
+      it 'should return a list of mastery pages containing lists of talents' do
+        response.pages.count.should be > 0
+        response.pages.first.talents.count.should be > 0
+      end
+    end
+
+    describe '#names' do
+      let(:froggen) { '19531813' }
+      let(:response) {
+        subject.summoner.names summoner_id, froggen
+      }
+
+      it "should return an array of summoners with name set" do
+        response.class.should == Array
+        response.count.should == 2
+        response.first.class.should == RiotApi::Model::Summoner
+        response.first.name.should == "Best Lux EUW"
+      end
+    end
+
     describe '#runes' do
       let(:summoner_id) { '19531813' }
 
@@ -79,26 +106,55 @@ describe RiotApi::API, :vcr do
 
     # Ranked command requires user has played ranked
     describe '#ranked' do
-      let(:response) {
-        subject.stats.ranked summoner_id
-      }
 
-      it 'should return ranked information from the summoner name' do
-        response.summonerId.should eql(19531813)
-        response.champions.first.first.should eql ["id", 111]
+      describe 'omitting season' do
+        let(:response) {
+          subject.stats.ranked summoner_id
+        }
+
+        it 'should return ranked information from the summoner id' do
+          response.summonerId.should eql(19531813)
+          response.champions.first.first.should eql ["id", 111]
+        end
+      end
+
+      describe 'specifying season' do
+        let(:response) {
+          subject.stats.ranked summoner_id, :season => "SEASON3"
+        }
+
+        it 'should return ranked information from the summoner id for the specified season' do
+          response.summonerId.should eql(19531813)
+          response.champions.first.first.should eql ["id", 111]
+        end
       end
     end
 
     describe '#summary' do
-      let(:response) {
-        subject.stats.summary summoner_id
-      }
 
-      it 'should return summary information from the summoner id' do
-        response.summonerId.should eql(19531813)
-        response.playerStatSummaries.first.should include 'aggregated_stats'
+      describe 'omitting season' do
+        let(:response) {
+          subject.stats.summary summoner_id
+        }
+
+        it 'should return summary information from the summoner id' do
+          response.summonerId.should eql(19531813)
+          response.playerStatSummaries.first.should include 'aggregated_stats'
+        end
+      end
+
+      describe 'specifying season' do
+        let(:response) {
+          subject.stats.summary summoner_id, :season => "SEASON3"
+        }
+
+        it 'should return summary information from the summoner id for the specified season' do
+          response.summonerId.should eql(19531813)
+          response.playerStatSummaries.first.should include 'aggregated_stats'
+        end
       end
     end
+
   end
 
   describe '#champions' do
@@ -157,6 +213,22 @@ describe RiotApi::API, :vcr do
       it 'should return leagues data for summoner' do
         response["entries"].count.should > 0
         response.tier.should == 'CHALLENGER'
+      end
+    end
+  end
+
+
+  describe '#team', :vcr do
+    let(:summoner_id) { '19531813' }
+
+    describe '#by_summoner' do
+      let(:response) {
+        subject.league.by_summoner summoner_id
+      }
+
+      it 'should return team data for summoner' do
+        response.count.should > 0
+        response.first.first.should == 'timestamp'
       end
     end
   end
