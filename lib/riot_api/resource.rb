@@ -5,6 +5,7 @@ require 'riot_api/resource/game'
 require 'riot_api/resource/league'
 require 'riot_api/resource/stats'
 require 'riot_api/resource/summoner'
+require 'riot_api/resource/team'
 
 module RiotApi
   module Resource

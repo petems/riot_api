@@ -223,12 +223,13 @@ describe RiotApi::API, :vcr do
 
     describe '#by_summoner' do
       let(:response) {
-        subject.league.by_summoner summoner_id
+        subject.team.by_summoner summoner_id
       }
 
       it 'should return team data for summoner' do
+        puts response
         response.count.should > 0
-        response.first.first.should == 'timestamp'
+        response.first.first.should == ["timestamp", 1387051307170]
       end
     end
   end
