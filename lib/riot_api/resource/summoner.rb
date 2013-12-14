@@ -21,6 +21,10 @@ module RiotApi
         end
       end
 
+      def runes(id)
+        @connection.get("#{base_path}/#{id}/runes").body
+      end
+
       private
 
       def base_path
