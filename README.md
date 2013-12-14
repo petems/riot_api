@@ -45,6 +45,38 @@ summoner_details = ra.summoner.name('Best Lux EUW')
 summoner.name # => "Best Lux EUW"
 ```
 
+## Methods
+
+```
+RiotApi::API
+  #summoner
+    #name(summoner_name)
+      should return information from a given summoner name
+    #id(summoner_name)
+      should return information from a given summoner id
+    #names(summoner_name_1, summoner_name_2)
+      should return an array of summoners with name set
+  #stats
+    #ranked(summoner_name)
+      should return ranked information from a given summoner name
+    #summary(summoner_name)
+      should return summary information from a given summoner id
+  #champions
+    #list
+      should return a list of all champions
+    #free
+      should return a list of all free champions
+  #game
+    #recent(summoner_name)
+      should return a list of recent games played from a given summoner id
+  #league
+    #by_summoner(summoner_name)
+      should return leagues data from a given summoner id
+  #team
+    #by_summoner(summoner_id)
+      should return team data from a given summoner id
+```
+
 ## ChangeLog / History / Releases
 
 see the [CHANGELOG.md](./CHANGELOG.md) file.
@@ -77,7 +109,7 @@ rspec
 
 ### Contributors
 
-* None Yet :)
+* [pcg79](https://github.com/pcg79)
 
 For more information and a complete list see [the contributor page on GitHub](https://github.com/petems/riot_api/contributors).
 
