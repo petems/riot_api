@@ -17,6 +17,15 @@ describe RiotApi::API, :vcr do
     it 'should raise an error when given an invalid region' do
       expect{ client = RiotApi::API.new :api_key => api_key, :region => 'YYZ'}.to raise_error(ArgumentError, "Invalid Region (Valid regions: 'eune','br','tr','na','euw')")
     end
+
+    it 'should output to stdout with debug parameter' do
+      client = RiotApi::API.new :api_key => api_key, :region => 'euw', :debug => true
+
+      printed = capture_stdout do
+        client.summoner.name 'BestLuxEUW'
+      end
+      expect(printed).to include 'Started GET request to: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/by-name/BestLuxEUW/?api_key=[API-KEY]'
+    end
   end
 
   describe 'ssl settings' do
