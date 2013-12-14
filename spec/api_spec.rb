@@ -59,6 +59,20 @@ describe RiotApi::API, :vcr do
       end
     end
 
+    describe '#names' do
+      let(:froggen) { '19531813' }
+      let(:response) {
+        subject.summoner.names summoner_id, froggen
+      }
+
+      it "should return an array of summoners with name set" do
+        response.class.should == Array
+        response.count.should == 2
+        response.first.class.should == RiotApi::Model::Summoner
+        response.first.name.should == "Best Lux EUW"
+      end
+    end
+
   end
 
   describe '#stats' do
