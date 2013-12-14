@@ -148,4 +148,20 @@ describe RiotApi::API, :vcr do
     end
   end
 
+
+  describe '#team', :vcr do
+    let(:summoner_id) { '19531813' }
+
+    describe '#by_summoner' do
+      let(:response) {
+        subject.league.by_summoner summoner_id
+      }
+
+      it 'should return team data for summoner' do
+        response.count.should > 0
+        response.first.first.should == 'timestamp'
+      end
+    end
+  end
+
 end

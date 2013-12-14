@@ -49,6 +49,10 @@ module RiotApi
       RiotApi::Resource::Summoner.new(@faraday, @region)
     end
 
+    def team
+      RiotApi::Resource::Team.new(@faraday, @region)
+    end
+
     def default_faraday
       Faraday.new(:url => @base_url, :ssl => @ssl) do |faraday|
         faraday.use Faraday::Response::RaiseError if @raise_status_errors
