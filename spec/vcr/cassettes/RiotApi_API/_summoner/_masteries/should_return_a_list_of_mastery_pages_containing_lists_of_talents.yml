@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/19531813/masteries?api_key=api_key_YYYYYYYYYYYYYYYYYYYYY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - riot_api rubygem v0.0.2
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      access-control-allow-headers:
+      - Content-Type
+      access-control-allow-methods:
+      - GET, POST, DELETE, PUT
+      access-control-allow-origin:
+      - ! '*'
+      content-type:
+      - application/json;charset=UTF-8
+      date:
+      - Fri, 13 Dec 2013 15:18:45 GMT
+      server:
+      - Jetty(9.1.0.v20131115)
+      x-newrelic-app-data:
+      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: US-ASCII
+      string: ! '{"summonerId":19531813,"pages":[{"name":"Mastery Page 6","current":false,"talents":[{"id":4233,"name":"Hardiness","rank":3},{"id":4212,"name":"Recovery","rank":2},{"id":4211,"name":"Block","rank":2},{"id":4251,"name":"Second
+        Wind","rank":1},{"id":4222,"name":"Veteran''s Scars","rank":3},{"id":4113,"name":"Sorcery","rank":4},{"id":4221,"name":"Unyielding","rank":1},{"id":4123,"name":"Mental
+        Force","rank":3},{"id":4262,"name":"Tenacious","rank":1},{"id":4252,"name":"Legendary
+        Guardian","rank":3},{"id":4111,"name":"Double-Edged Sword","rank":1},{"id":4241,"name":"Perseverance","rank":3},{"id":4234,"name":"Resistance","rank":1},{"id":4133,"name":"Arcane
+        Mastery","rank":1},{"id":4232,"name":"Juggernaut","rank":1}]},{"name":"Mastery
+        Page 5","current":false,"talents":[{"id":4233,"name":"Hardiness","rank":3},{"id":4211,"name":"Block","rank":2},{"id":4243,"name":"Reinforced
+        Armor","rank":1},{"id":4213,"name":"Enchanted Armor","rank":2},{"id":4251,"name":"Second
+        Wind","rank":1},{"id":4252,"name":"Legendary Guardian","rank":2},{"id":4222,"name":"Veteran''s
+        Scars","rank":3},{"id":4113,"name":"Sorcery","rank":4},{"id":4221,"name":"Unyielding","rank":1},{"id":4122,"name":"Brute
+        Force","rank":3},{"id":4262,"name":"Tenacious","rank":1},{"id":4111,"name":"Double-Edged
+        Sword","rank":1},{"id":4132,"name":"Martial Mastery","rank":1},{"id":4241,"name":"Perseverance","rank":3},{"id":4234,"name":"Resistance","rank":1},{"id":4232,"name":"Juggernaut","rank":1}]},{"name":"Mastery
+        Page 3","current":false,"talents":[{"id":4211,"name":"Block","rank":2},{"id":4134,"name":"Executioner","rank":3},{"id":4213,"name":"Enchanted
+        Armor","rank":2},{"id":4151,"name":"Frenzy","rank":1},{"id":4222,"name":"Veteran''s
+        Scars","rank":3},{"id":4112,"name":"Fury","rank":4},{"id":4144,"name":"Dangerous
+        Game","rank":1},{"id":4221,"name":"Unyielding","rank":1},{"id":4122,"name":"Brute
+        Force","rank":3},{"id":4152,"name":"Devastating Strikes","rank":3},{"id":4111,"name":"Double-Edged
+        Sword","rank":1},{"id":4132,"name":"Martial Mastery","rank":1},{"id":4142,"name":"Warlord","rank":3},{"id":4233,"name":"Hardiness","rank":1},{"id":4162,"name":"Havoc","rank":1}]},{"name":"AP","current":false,"talents":[{"id":4311,"name":"Phasewalker","rank":1},{"id":4322,"name":"Summoner''s
+        Insight","rank":3},{"id":4332,"name":"Runic Affinity","rank":1},{"id":4154,"name":"Arcane
+        Blade","rank":1},{"id":4112,"name":"Fury","rank":4},{"id":4324,"name":"Alchemist","rank":1},{"id":4122,"name":"Brute
+        Force","rank":3},{"id":4152,"name":"Devastating Strikes","rank":3},{"id":4123,"name":"Mental
+        Force","rank":3},{"id":4111,"name":"Double-Edged Sword","rank":1},{"id":4313,"name":"Meditation","rank":3},{"id":4132,"name":"Martial
+        Mastery","rank":1},{"id":4133,"name":"Arcane Mastery","rank":1},{"id":4143,"name":"Archmage","rank":3},{"id":4162,"name":"Havoc","rank":1}]},{"name":"Mastery
+        Page 4","current":true,"talents":[{"id":4311,"name":"Phasewalker","rank":1},{"id":4134,"name":"Executioner","rank":3},{"id":4322,"name":"Summoner''s
+        Insight","rank":3},{"id":4332,"name":"Runic Affinity","rank":1},{"id":4154,"name":"Arcane
+        Blade","rank":1},{"id":4113,"name":"Sorcery","rank":4},{"id":4144,"name":"Dangerous
+        Game","rank":1},{"id":4324,"name":"Alchemist","rank":1},{"id":4152,"name":"Devastating
+        Strikes","rank":3},{"id":4123,"name":"Mental Force","rank":3},{"id":4111,"name":"Double-Edged
+        Sword","rank":1},{"id":4313,"name":"Meditation","rank":3},{"id":4133,"name":"Arcane
+        Mastery","rank":1},{"id":4143,"name":"Archmage","rank":3},{"id":4162,"name":"Havoc","rank":1}]},{"name":"Mastery
+        Page 2","current":false,"talents":[{"id":4242,"name":"Swiftness","rank":1},{"id":4233,"name":"Hardiness","rank":3},{"id":4243,"name":"Reinforced
+        Armor","rank":1},{"id":4211,"name":"Block","rank":2},{"id":4213,"name":"Enchanted
+        Armor","rank":2},{"id":4251,"name":"Second Wind","rank":1},{"id":4252,"name":"Legendary
+        Guardian","rank":2},{"id":4222,"name":"Veteran''s Scars","rank":3},{"id":4113,"name":"Sorcery","rank":4},{"id":4221,"name":"Unyielding","rank":1},{"id":4122,"name":"Brute
+        Force","rank":3},{"id":4262,"name":"Tenacious","rank":1},{"id":4111,"name":"Double-Edged
+        Sword","rank":1},{"id":4132,"name":"Martial Mastery","rank":1},{"id":4241,"name":"Perseverance","rank":3},{"id":4232,"name":"Juggernaut","rank":1}]},{"name":"Mastery
+        Page 7","current":false,"talents":[{"id":4211,"name":"Block","rank":2},{"id":4311,"name":"Phasewalker","rank":1},{"id":4213,"name":"Enchanted
+        Armor","rank":2},{"id":4322,"name":"Summoner''s Insight","rank":3},{"id":4334,"name":"Culinary
+        Master","rank":1},{"id":4344,"name":"Inspiration","rank":2},{"id":4113,"name":"Sorcery","rank":4},{"id":4221,"name":"Unyielding","rank":1},{"id":4331,"name":"Greed","rank":3},{"id":4324,"name":"Alchemist","rank":1},{"id":4123,"name":"Mental
+        Force","rank":3},{"id":4312,"name":"Fleet of Foot","rank":3},{"id":4111,"name":"Double-Edged
+        Sword","rank":1},{"id":4133,"name":"Arcane Mastery","rank":1},{"id":4342,"name":"Wealth","rank":1},{"id":4341,"name":"Scavenger","rank":1}]}]}'
+    http_version: 
+  recorded_at: Fri, 13 Dec 2013 15:18:45 GMT
+recorded_with: VCR 2.8.0

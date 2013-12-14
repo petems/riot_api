@@ -59,6 +59,19 @@ describe RiotApi::API, :vcr do
       end
     end
 
+    describe '#masteries' do
+      let(:summoner_id) { '19531813' }
+
+      let(:response) {
+        subject.summoner.masteries summoner_id
+      }
+
+      it 'should return a list of mastery pages containing lists of talents' do
+        response.pages.count.should be > 0
+        response.pages.first.talents.count.should be > 0
+      end
+    end
+
     describe '#names' do
       let(:froggen) { '19531813' }
       let(:response) {
