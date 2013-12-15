@@ -227,7 +227,6 @@ describe RiotApi::API, :vcr do
       }
 
       it 'should return team data for summoner' do
-        puts response
         response.count.should > 0
         response.first.first.should == ["timestamp", 1387051307170]
       end
