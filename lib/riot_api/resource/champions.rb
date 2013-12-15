@@ -3,7 +3,12 @@ module RiotApi
     class Champions < Base
 
       def list(free=false)
-        @connection.get(base_path, { :freeToPlay => free }).body.champions
+        champions = []
+        response = @connection.get(base_path, { :freeToPlay => free }).body
+        response.champions.each do |champion|
+          champions << RiotApi::Model::Champion.new(champion)
+        end
+        champions
       end
 
       def free

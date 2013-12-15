@@ -158,29 +158,29 @@ describe RiotApi::API, :vcr do
   end
 
   describe '#champions' do
-    let(:current_champion_count) { 116 }
+    let(:current_champion_count) { 117 }
 
     describe '#list' do
-      let(:response) {
+      let(:champions) {
         subject.champions.list
       }
 
       it 'should return a list of all champions' do
-        response.count.should be >= current_champion_count
-        response.first.respond_to?(:name).should be_true
+        champions.count.should be >= current_champion_count
+        champions.first.respond_to?(:name).should be_true
       end
     end
 
     describe '#free' do
-      let(:response) {
+      let(:champions) {
         subject.champions.free
       }
 
-      it 'should return a list of all free champions' do
-        response.count.should be < current_champion_count
-        response.count.should be > 0
-        response.first.respond_to?(:name).should be_true
-        response.first.free_to_play.should be_true
+      it 'should contain free champions' do
+        champions.should_not be_empty
+        champions.count.should be < current_champion_count
+        champions.first.respond_to?(:name).should be_true
+        champions.first.free_to_play.should be_true
       end
     end
 
