@@ -16,4 +16,3 @@ test/version_tmp
 tmp
 .rbenv-vars
 .coveralls.yml
-spec/vcr/cassettes
