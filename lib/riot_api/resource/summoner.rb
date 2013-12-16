@@ -3,11 +3,11 @@ module RiotApi
     class Summoner < Base
 
       def name(name, opts = {})
-        RiotApi::Model::Summoner.new get("#{base_path}/by-name/#{name}/")
+        build_summoner get("#{base_path}/by-name/#{name}/")
       end
 
       def id(id, opts = {})
-        RiotApi::Model::Summoner.new get("#{base_path}/#{id}/")
+        build_summoner get("#{base_path}/#{id}/")
       end
 
       def masteries(id)
@@ -17,7 +17,7 @@ module RiotApi
       def names(*ids)
         ids = ids.compact.join(',')
         get("#{base_path}/#{ids}/name").summoners.map do |summoner|
-          RiotApi::Model::Summoner.new summoner
+          build_summoner summoner
         end
       end
 
@@ -26,6 +26,10 @@ module RiotApi
       end
 
       private
+
+      def build_summoner(data)
+        RiotApi::Model::Summoner.new data
+      end
 
       def base_path
         "summoner"
