@@ -12,7 +12,7 @@ describe RiotApi::Model::Game do
       game.game_id.should == data['game_id']
       game.game_mode.should == data['game_mode']
       game.fellow_players.class.should == Array
-      game.fellow_players.first.class.should == Hash
+      game.fellow_players.first.class.should == RiotApi::Model::Player
       game.statistics.class.should == Array
       game.statistics.first.class.should == Hash
     end

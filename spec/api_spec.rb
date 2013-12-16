@@ -206,6 +206,7 @@ describe RiotApi::API, :vcr do
       it 'should return a list of recent games played' do
         game.class.should == RiotApi::Model::Game
         game.champion_id.should_not be_nil
+        game.fellow_players.first.class.should == RiotApi::Model::Player
       end
     end
   end
