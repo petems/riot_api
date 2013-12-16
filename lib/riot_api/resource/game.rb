@@ -3,7 +3,7 @@ module RiotApi
     class Game < Base
 
       def recent(summoner_id)
-        @connection.get(recent_path(summoner_id)).body.games
+        get(recent_path(summoner_id)).games
       end
 
       private
@@ -13,7 +13,7 @@ module RiotApi
       end
 
       def base_path(summoner_id)
-        "#{endpoint_precursor}/game/by-summoner/#{summoner_id}"
+        "game/by-summoner/#{summoner_id}"
       end
 
     end

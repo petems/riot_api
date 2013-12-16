@@ -3,7 +3,7 @@ module RiotApi
     class League < BaseV21
 
       def by_summoner(summoner_id)
-        @connection.get(by_summoner_path(summoner_id)).body[summoner_id.to_s]
+        get(by_summoner_path(summoner_id))[summoner_id.to_s]
       end
 
       private
@@ -13,7 +13,7 @@ module RiotApi
       end
 
       def base_path
-        "#{endpoint_precursor}/league"
+        "league"
       end
 
     end
