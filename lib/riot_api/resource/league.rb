@@ -3,13 +3,13 @@ module RiotApi
     class League < BaseV21
 
       def by_summoner(summoner_id)
-        get(by_summoner_path(summoner_id))[summoner_id.to_s]
+        build_league get(by_summoner_path(summoner_id))[summoner_id.to_s]
       end
 
       private
 
       def build_league(data)
-        Riot::Model::League.new data
+        RiotApi::Model::League.new data
       end
 
       def by_summoner_path(summoner_id)
