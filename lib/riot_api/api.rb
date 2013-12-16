@@ -24,7 +24,7 @@ module RiotApi
       @ssl                 = params[:ssl] || { :verify => true }
       @base_url            = params[:base_url]            || "http://prod.api.pvp.net/api/"
       @faraday_adapter     = params[:faraday_adapter]     || Faraday.default_adapter
-      @raise_status_errors = params[:raise_status_errors] || false
+      @raise_status_errors = params[:raise_status_errors] || true
       @faraday             = params[:faraday]             || default_faraday
       raise ArgumentError, ':api_key missing' unless @api_key
       raise ArgumentError, ':region missing' unless @region
@@ -57,11 +57,11 @@ module RiotApi
 
     def default_faraday
       Faraday.new(:url => @base_url, :ssl => @ssl) do |faraday|
-        faraday.use Faraday::Response::RaiseError if @raise_status_errors
         faraday.use CustomLogger if @debug
         faraday.request  :url_encoded
         faraday.response :rashify
         faraday.response :json
+        faraday.use Faraday::Response::RaiseError if @raise_status_errors
         faraday.adapter @faraday_adapter
         faraday.params['api_key'] = @api_key
         faraday.headers['User-Agent'] = "riot_api rubygem v#{RiotApi::VERSION}"
