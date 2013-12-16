@@ -200,13 +200,12 @@ describe RiotApi::API, :vcr do
 
     # Ranked command requires user has played ranked
     describe '#recent' do
-      let(:response) {
-        subject.game.recent summoner_id
-      }
+      let(:games) { subject.game.recent summoner_id }
+      let(:game)  { games.first }
 
       it 'should return a list of recent games played' do
-        response.count.should > 0
-        response.first.respond_to?(:champion_id).should be_true
+        game.class.should == RiotApi::Model::Game
+        game.champion_id.should_not be_nil
       end
     end
   end
