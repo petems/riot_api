@@ -16,3 +16,5 @@ test/version_tmp
 tmp
 .rbenv-vars
 .coveralls.yml
+.ruby-version
+.ruby-gemset
