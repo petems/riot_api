@@ -110,7 +110,7 @@ rspec
 
 ### Contributors
 
-* [pcg79](https://github.com/pcg79)
+* [@pcg79](https://github.com/pcg79)
 
 For more information and a complete list see [the contributor page on GitHub](https://github.com/petems/riot_api/contributors).
 
@@ -120,5 +120,5 @@ For more information and a complete list see [the contributor page on GitHub](ht
 
 ## Thanks
 
-* @rmoriz - For the excellent [digital_ocean](https://github.com/rmoriz/digital_ocean) gem, which I used as a framework to setup this gem! :+1:
+* [@rmoriz](https://github.com/rmoriz) - For the excellent [digital_ocean](https://github.com/rmoriz/digital_ocean) gem, which I used as a framework to setup this gem! :+1:
 
