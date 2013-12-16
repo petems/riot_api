@@ -3,11 +3,11 @@ module RiotApi
     class Summoner < Base
 
       def name(name, opts = {})
-        build_summoner get("#{base_path}/by-name/#{name}/")
+        build_summoner get("#{base_path}/by-name/#{name}")
       end
 
       def id(id, opts = {})
-        build_summoner get("#{base_path}/#{id}/")
+        build_summoner get("#{base_path}/#{id}")
       end
 
       def masteries(id)

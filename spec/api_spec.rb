@@ -24,7 +24,7 @@ describe RiotApi::API, :vcr do
       printed = capture_stdout do
         client.summoner.name 'BestLuxEUW'
       end
-      expect(printed).to include 'Started GET request to: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/by-name/BestLuxEUW/?api_key=[API-KEY]'
+      expect(printed).to include 'Started GET request to: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/by-name/BestLuxEUW?api_key=[API-KEY]'
     end
   end
 

@@ -2,40 +2,29 @@
 http_interactions:
 - request:
     method: get
-    uri: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/by-name/BestLuxEUW/?api_key=api_key_YYYYYYYYYYYYYYYYYYYYY
+    uri: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/by-name/BestLuxEUW?api_key=api_key_YYYYYYYYYYYYYYYYYYYYY
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - riot_api rubygem v0.0.3
+      - riot_api rubygem v0.0.4
   response:
     status:
-      code: 200
+      code: 401
       message: 
     headers:
-      access-control-allow-headers:
-      - Content-Type
-      access-control-allow-methods:
-      - GET, POST, DELETE, PUT
-      access-control-allow-origin:
-      - ! '*'
       content-type:
       - application/json;charset=UTF-8
-      date:
-      - Mon, 16 Dec 2013 00:10:12 GMT
       server:
       - Jetty(9.1.0.v20131115)
-      x-newrelic-app-data:
-      - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
       content-length:
-      - '146'
+      - '60'
       connection:
       - Close
     body:
       encoding: US-ASCII
-      string: ! '{"id":44600324,"name":"Best Lux EUW","profileIconId":7,"summonerLevel":6,"revisionDate":1375116256000,"revisionDateStr":"07/29/2013
-        04:44 PM UTC"}'
+      string: ! '{"status": {"message": "Access denied", "status_code": 401}}'
     http_version: 
-  recorded_at: Mon, 16 Dec 2013 00:10:12 GMT
+  recorded_at: Mon, 16 Dec 2013 16:25:11 GMT
 recorded_with: VCR 2.8.0
