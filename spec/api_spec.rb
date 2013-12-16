@@ -26,6 +26,11 @@ describe RiotApi::API, :vcr do
       end
       expect(printed).to include 'Started GET request to: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/by-name/BestLuxEUW/?api_key=[API-KEY]'
     end
+
+    it 'should raise an error if the raise error status flag is enabled' do
+      client = RiotApi::API.new :api_key => api_key, :region => 'euw', :raise_status_errors => true
+      expect{ client.summoner.name 'fakemcfakename' }.to raise_error(Faraday::Error::ResourceNotFound, "the server responded with status 404")
+    end
   end
 
   describe 'ssl settings' do
