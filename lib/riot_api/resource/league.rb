@@ -13,7 +13,7 @@ module RiotApi
       end
 
       def base_path
-        "#{endpoint_precursor}/league"
+        "league"
       end
 
     end

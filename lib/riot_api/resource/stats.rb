@@ -13,7 +13,7 @@ module RiotApi
       private
 
       def base_path(id)
-        "#{endpoint_precursor}/stats/by-summoner/#{id}"
+        "stats/by-summoner/#{id}"
       end
     end
   end

@@ -28,7 +28,7 @@ module RiotApi
       private
 
       def base_path
-        "#{endpoint_precursor}/summoner/"
+        "summoner"
       end
 
     end
