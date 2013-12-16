@@ -207,6 +207,7 @@ describe RiotApi::API, :vcr do
         game.class.should == RiotApi::Model::Game
         game.champion_id.should_not be_nil
         game.fellow_players.first.class.should == RiotApi::Model::Player
+        game.statistics.first.class.should == RiotApi::Model::Statistic
       end
     end
   end

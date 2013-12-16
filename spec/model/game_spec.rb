@@ -14,7 +14,7 @@ describe RiotApi::Model::Game do
       game.fellow_players.class.should == Array
       game.fellow_players.first.class.should == RiotApi::Model::Player
       game.statistics.class.should == Array
-      game.statistics.first.class.should == Hash
+      game.statistics.first.class.should == RiotApi::Model::Statistic
     end
   end
 end
