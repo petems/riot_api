@@ -24,7 +24,7 @@ module RiotApi
       @ssl                 = params[:ssl] || { :verify => true }
       @base_url            = params[:base_url]            || "http://prod.api.pvp.net/api/"
       @faraday_adapter     = params[:faraday_adapter]     || Faraday.default_adapter
-      @raise_status_errors = params[:raise_status_errors] || false
+      @raise_status_errors = params[:raise_status_errors] || true
       @faraday             = params[:faraday]             || default_faraday
       raise ArgumentError, ':api_key missing' unless @api_key
       raise ArgumentError, ':region missing' unless @region
