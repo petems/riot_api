@@ -3,7 +3,7 @@ module RiotApi
     class League < BaseV21
 
       def by_summoner(summoner_id)
-        get(by_summoner_path(summoner_id)).body[summoner_id.to_s]
+        get(by_summoner_path(summoner_id))[summoner_id.to_s]
       end
 
       private

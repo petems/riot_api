@@ -7,7 +7,7 @@ module RiotApi
       end
 
       def get(path, options={})
-        @connection.get(path, options)
+        @connection.get(path, options).body
       end
 
       def endpoint_precursor
