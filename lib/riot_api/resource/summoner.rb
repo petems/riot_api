@@ -3,32 +3,32 @@ module RiotApi
     class Summoner < Base
 
       def name(name, opts = {})
-        RiotApi::Model::Summoner.new @connection.get("#{base_path}/by-name/#{name}/").body
+        RiotApi::Model::Summoner.new get("#{base_path}/by-name/#{name}/")
       end
 
       def id(id, opts = {})
-        RiotApi::Model::Summoner.new @connection.get("#{base_path}/#{id}/").body
+        RiotApi::Model::Summoner.new get("#{base_path}/#{id}/")
       end
 
       def masteries(id)
-        @connection.get("#{base_path}/#{id}/masteries").body
+        get("#{base_path}/#{id}/masteries")
       end
 
       def names(*ids)
         ids = ids.compact.join(',')
-        @connection.get("#{base_path}/#{ids}/name").body.summoners.map do |summoner|
+        get("#{base_path}/#{ids}/name").summoners.map do |summoner|
           RiotApi::Model::Summoner.new summoner
         end
       end
 
       def runes(id)
-        @connection.get("#{base_path}/#{id}/runes").body
+        get("#{base_path}/#{id}/runes")
       end
 
       private
 
       def base_path
-        "#{endpoint_precursor}/summoner/"
+        "summoner"
       end
 
     end
