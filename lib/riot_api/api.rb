@@ -1,5 +1,3 @@
-require File.expand_path('../middleware/custom_logger', __FILE__)
-
 module RiotApi
   class API
 
@@ -57,11 +55,10 @@ module RiotApi
 
     def default_faraday
       Faraday.new(:url => @base_url, :ssl => @ssl) do |faraday|
-        faraday.use Faraday::Response::RaiseError if @raise_status_errors
-        faraday.use CustomLogger if @debug
+        faraday.use Rashify
+        faraday.use ParseJson
+        faraday.use Logger if @debug
         faraday.request  :url_encoded
-        faraday.response :rashify
-        faraday.response :json
         faraday.adapter @faraday_adapter
         faraday.params['api_key'] = @api_key
         faraday.headers['User-Agent'] = "riot_api rubygem v#{RiotApi::VERSION}"

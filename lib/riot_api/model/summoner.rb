@@ -7,7 +7,6 @@ module RiotApi
       attribute :summoner_level,  Integer
       attribute :revision_date_str, String
       attribute :revision_date, Integer
-
     end
   end
 end
