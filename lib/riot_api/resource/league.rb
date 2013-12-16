@@ -8,6 +8,10 @@ module RiotApi
 
       private
 
+      def build_league(data)
+        Riot::Model::League.new data
+      end
+
       def by_summoner_path(summoner_id)
         "#{base_path}/by-summoner/#{summoner_id}"
       end
