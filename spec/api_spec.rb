@@ -26,6 +26,11 @@ describe RiotApi::API, :vcr do
       end
       expect(printed).to include 'Started GET request to: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/by-name/BestLuxEUW?api_key=[API-KEY]'
     end
+
+    it 'should raise an error if the raise error status flag is enabled' do
+      client = RiotApi::API.new :api_key => api_key, :region => 'euw', :raise_status_errors => true
+      expect{ client.summoner.name 'fakemcfakename' }.to raise_error(Faraday::Error::ResourceNotFound, "the server responded with status 404")
+    end
   end
 
   describe 'ssl settings' do
@@ -216,13 +221,13 @@ describe RiotApi::API, :vcr do
     let(:summoner_id) { '19531813' }
 
     describe '#by_summoner' do
-      let(:response) {
-        subject.league.by_summoner summoner_id
-      }
+      let(:league) { subject.league.by_summoner summoner_id }
 
-      it 'should return leagues data for summoner' do
-        response["entries"].count.should > 0
-        response.tier.should == 'CHALLENGER'
+      it 'should return league object for summoner' do
+        league.class.should == RiotApi::Model::League
+        league.tier.should == 'CHALLENGER'
+        league.entries.count.should > 0
+        league.entries.first.class.should == RiotApi::Model::LeagueEntry
       end
     end
   end
