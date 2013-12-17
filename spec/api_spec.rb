@@ -103,13 +103,16 @@ describe RiotApi::API, :vcr do
     describe '#runes' do
       let(:summoner_id) { '19531813' }
 
-      let(:response) {
-        subject.summoner.runes summoner_id
-      }
+      let(:pages) { subject.summoner.runes summoner_id }
+      let(:page)  { pages.first }
+      let(:slot)  { page.slots.first }
+      let(:rune)  { slot.rune }
 
       it 'should return a list of rune pages containing lists of talents' do
-        response.pages.count.should be > 0
-        response.pages.first.slots.count.should be > 0
+        page.class.should == RiotApi::Model::RunePage
+        slot.class.should == RiotApi::Model::RuneSlot
+        rune.class.should == RiotApi::Model::Rune
+        rune.id.should_not be_nil
       end
     end
 
