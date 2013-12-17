@@ -24,7 +24,7 @@ describe RiotApi::API, :vcr do
       printed = capture_stdout do
         client.summoner.name 'BestLuxEUW'
       end
-      expect(printed).to include 'Started GET request to: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/by-name/BestLuxEUW/?api_key=[API-KEY]'
+      expect(printed).to include 'Started GET request to: http://prod.api.pvp.net/api/lol/euw/v1.1/summoner/by-name/BestLuxEUW?api_key=[API-KEY]'
     end
 
     it 'should raise an error if the raise error status flag is enabled' do
@@ -205,13 +205,14 @@ describe RiotApi::API, :vcr do
 
     # Ranked command requires user has played ranked
     describe '#recent' do
-      let(:response) {
-        subject.game.recent summoner_id
-      }
+      let(:games) { subject.game.recent summoner_id }
+      let(:game)  { games.first }
 
       it 'should return a list of recent games played' do
-        response.count.should > 0
-        response.first.respond_to?(:champion_id).should be_true
+        game.class.should == RiotApi::Model::Game
+        game.champion_id.should_not be_nil
+        game.fellow_players.first.class.should == RiotApi::Model::Player
+        game.statistics.first.class.should == RiotApi::Model::Statistic
       end
     end
   end
