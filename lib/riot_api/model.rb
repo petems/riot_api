@@ -4,6 +4,7 @@ require 'riot_api/model/game'
 require 'riot_api/model/league'
 require 'riot_api/model/rune_page'
 require 'riot_api/model/summoner'
+require 'riot_api/model/team'
 
 module RiotApi
   module Model

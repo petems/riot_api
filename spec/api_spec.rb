@@ -240,13 +240,34 @@ describe RiotApi::API, :vcr do
     let(:summoner_id) { '19531813' }
 
     describe '#by_summoner' do
-      let(:response) {
-        subject.team.by_summoner summoner_id
-      }
+      let(:teams) { subject.team.by_summoner summoner_id }
+      let(:team)  { teams.first }
+
+      let(:match_history) { team.match_history }
+      let(:match) { match_history.first }
+
+      let(:roster) { team.roster }
+      let(:member_list) { roster.member_list }
+      let(:member) { member_list.first }
+
+      let(:team_stat_summary) { team.team_stat_summary }
+      let(:team_stat_details) { team_stat_summary.team_stat_details }
+      let(:team_stat_detail)  { team_stat_details.first }
+
+      let(:team_id) { team.team_id }
 
       it 'should return team data for summoner' do
-        response.count.should > 0
-        response.first.first.should == ["timestamp", 1387051307170]
+        teams.should_not be_empty
+        team.class.should == RiotApi::Model::Team
+
+        match.assists.should_not be_nil
+
+        roster.owner_id.should_not be_nil
+        member.player_id.should_not be_nil
+
+        team_stat_summary.team_id.should_not be_nil
+        team_stat_detail.wins.should_not be_nil
+        team_stat_detail.team_id.should_not be_nil
       end
     end
   end
