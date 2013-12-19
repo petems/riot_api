@@ -76,13 +76,15 @@ describe RiotApi::API, :vcr do
     describe '#masteries' do
       let(:summoner_id) { '19531813' }
 
-      let(:response) {
-        subject.summoner.masteries summoner_id
-      }
+      let(:pages) { subject.summoner.masteries summoner_id }
+      let(:page)  { pages.first }
+      let(:talents) { page.talents }
+      let(:talent)  { talents.first }
 
       it 'should return a list of mastery pages containing lists of talents' do
-        response.pages.count.should be > 0
-        response.pages.first.talents.count.should be > 0
+        page.class.should == RiotApi::Model::MasteryPage
+        talent.class.should == RiotApi::Model::Talent
+        talent.name.should_not be_nil
       end
     end
 

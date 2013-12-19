@@ -11,7 +11,9 @@ module RiotApi
       end
 
       def masteries(id)
-        get("#{base_path}/#{id}/masteries")
+        get("#{base_path}/#{id}/masteries").pages.map do |page|
+          build_mastery_page page
+        end
       end
 
       def names(*ids)
@@ -28,6 +30,10 @@ module RiotApi
       end
 
       private
+
+      def build_mastery_page(data)
+        RiotApi::Model::MasteryPage.new data
+      end
 
       def build_rune_page(data)
         RiotApi::Model::RunePage.new data
