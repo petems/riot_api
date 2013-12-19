@@ -22,10 +22,16 @@ module RiotApi
       end
 
       def runes(id)
-        get("#{base_path}/#{id}/runes")
+        get("#{base_path}/#{id}/runes").pages.map do |page|
+          build_rune_page page
+        end
       end
 
       private
+
+      def build_rune_page(data)
+        RiotApi::Model::RunePage.new data
+      end
 
       def build_summoner(data)
         RiotApi::Model::Summoner.new data
