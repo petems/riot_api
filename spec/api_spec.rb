@@ -127,24 +127,32 @@ describe RiotApi::API, :vcr do
     describe '#ranked' do
 
       describe 'omitting season' do
-        let(:response) {
-          subject.stats.ranked summoner_id
-        }
+        let(:champion_stats) { subject.stats.ranked summoner_id }
+        let(:champion_stat)  { champion_stats.first }
+        let(:stats) { champion_stat.stats }
+        let(:stat)  { stats.first }
 
         it 'should return ranked information from the summoner id' do
-          response.summonerId.should eql(19531813)
-          response.champions.first.first.should eql ["id", 111]
+          champion_stats.class.should == Array
+          champion_stat.class.should == RiotApi::Model::ChampionStat
+          stats.class.should == Array
+          stat.class.should == RiotApi::Model::Statistic
+          champion_stat.id.should == 111
         end
       end
 
       describe 'specifying season' do
-        let(:response) {
-          subject.stats.ranked summoner_id, :season => "SEASON3"
-        }
+        let(:champion_stats) { subject.stats.ranked summoner_id, :season => "SEASON3" }
+        let(:champion_stat)  { champion_stats.first }
+        let(:stats) { champion_stat.stats }
+        let(:stat)  { stats.first }
 
         it 'should return ranked information from the summoner id for the specified season' do
-          response.summonerId.should eql(19531813)
-          response.champions.first.first.should eql ["id", 111]
+          champion_stats.class.should == Array
+          champion_stat.class.should == RiotApi::Model::ChampionStat
+          stats.class.should == Array
+          stat.class.should == RiotApi::Model::Statistic
+          champion_stat.id.should == 111
         end
       end
     end
@@ -152,24 +160,32 @@ describe RiotApi::API, :vcr do
     describe '#summary' do
 
       describe 'omitting season' do
-        let(:response) {
-          subject.stats.summary summoner_id
-        }
+        let(:player_stat_summaries) { subject.stats.summary summoner_id }
+        let(:player_stat_summary)  { player_stat_summaries.first }
+        let(:aggregated_stats) { player_stat_summary.aggregated_stats }
+        let(:aggregated_stat)  { aggregated_stats.first }
 
         it 'should return summary information from the summoner id' do
-          response.summonerId.should eql(19531813)
-          response.playerStatSummaries.first.should include 'aggregated_stats'
+          player_stat_summaries.class.should == Array
+          player_stat_summary.class.should == RiotApi::Model::PlayerStatSummary
+          aggregated_stats.class.should == Array
+          aggregated_stat.class.should == RiotApi::Model::Statistic
+          player_stat_summary.losses.should == 0
         end
       end
 
       describe 'specifying season' do
-        let(:response) {
-          subject.stats.summary summoner_id, :season => "SEASON3"
-        }
+        let(:player_stat_summaries) { subject.stats.summary summoner_id, :season => "SEASON3" }
+        let(:player_stat_summary)  { player_stat_summaries.first }
+        let(:aggregated_stats) { player_stat_summary.aggregated_stats }
+        let(:aggregated_stat)  { aggregated_stats.first }
 
         it 'should return summary information from the summoner id for the specified season' do
-          response.summonerId.should eql(19531813)
-          response.playerStatSummaries.first.should include 'aggregated_stats'
+          player_stat_summaries.class.should == Array
+          player_stat_summary.class.should == RiotApi::Model::PlayerStatSummary
+          aggregated_stats.class.should == Array
+          aggregated_stat.class.should == RiotApi::Model::Statistic
+          player_stat_summary.losses.should == 0
         end
       end
     end
