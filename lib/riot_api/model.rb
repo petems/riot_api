@@ -7,6 +7,7 @@ require 'riot_api/model/mastery_page'
 require 'riot_api/model/player_stat_summary'
 require 'riot_api/model/rune_page'
 require 'riot_api/model/summoner'
+require 'riot_api/model/team'
 
 module RiotApi
   module Model
