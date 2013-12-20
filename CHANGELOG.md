@@ -1,3 +1,8 @@
+## 0.1.0
+* Virtus models implemented for all end-points
+* Added custom log class for debug, which redacts API keys
+* Fix @raise_status_errors bug, will now raise error before trying to parse it as JSON
+
 ## 0.0.4
 * Yanked 0.0.3 release as Team method not implemented
 * Fixed team method
