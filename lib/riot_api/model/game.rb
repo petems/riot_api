@@ -10,6 +10,7 @@ module RiotApi
       attribute :fellow_players, Array[RiotApi::Model::Player]
       attribute :game_id, Integer
       attribute :game_mode, String
+      attribute :game_type, String
       attribute :level, Integer
       attribute :map_id, Integer
       attribute :spell1, Integer
